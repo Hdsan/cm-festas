@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "uri": "assets/1.jpeg",
+        "name": "Borboletas"
+    },
+    {
+        "id": "2",
+        "uri": "assets/2.jpeg",
+        "name":"US Lombra"
+    },
+    {
+        "id": "3",
+        "uri": "assets/3.jpeg",
+        "name":"Lilo & Stitch"
+    },
+    {
+        "id": "4",
+        "uri": "assets/4.jpeg",
+        "name":"Branca de Neve"
+    },
+    {
+        "id": "5",
+        "uri": "assets/5.jpeg",
+        "name":"Aniversário"
+    },
+    {
+        "id": "6",
+        "uri": "assets/6.jpeg",
+        "name":"Mulher Maravilha"
+    }
+]
