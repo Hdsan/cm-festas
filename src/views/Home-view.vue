@@ -1,41 +1,40 @@
 <template>
   <div class="main-page">
-   <AppHeader/>
+    <AppHeader />
     <div class="centered-card">
-      <v-carousel hide-delimiters>
-    <v-carousel-item
-      v-for="(item, index) in items2"
-      :key="index"
-    >
-      <v-img
-        :src="item.src"
-        :alt="'Slide ' + (index + 1)"
-        aspect-ratio="2.5"
-      ></v-img>
-    </v-carousel-item>
-  </v-carousel>
+      <!-- <v-carousel hide-delimiters>
+        <v-carousel-item v-for="(item, index) in items2" :key="index">
+          <v-img :src="item.src" :alt="'Slide ' + (index + 1)" aspect-ratio="2.5"></v-img>
+        </v-carousel-item>
+      </v-carousel> -->
       <div id="main-card-overlay">
-        Te ajudo a criar boas memórias
+        <div class="main-card-text">
+          Te ajudo a criar boas
+        </div>
+        <div id="holder">
+          <img class="main-card-carroussel-text" :src="currentImage" alt="img">
+        </div>
       </div>
     </div>
     <div class="card-grid">
-    <div v-for="item in items" :key="item.id" class="image-container">
-      <div class="image-wrapper">
-        <img :src="item.uri" :alt="item.name" class="card">
-        <div class="overlay">
-          <div class="message">
-            {{item.name}}
+      <div v-for="item in items" :key="item.id" class="image-container">
+        <div class="image-wrapper">
+          <img :src="item.uri" :alt="item.name" class="card">
+          <div class="overlay">
+            <div class="message">
+              {{ item.name }}
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    <AppFooter/>
+    <AppFooter />
   </div>
 </template>
 
 <script>
-import jsonData from '@/controller/photos.json';
+import jsonData from '@/controller/photos.json'
+import banners from '@/controller/banners.json'
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 export default {
@@ -46,7 +45,9 @@ export default {
   },
   data() {
     return {
+      currentImageIndex: 0,
       items: jsonData,
+      banners:banners,
       items2: [
         { src: 'https://via.placeholder.com/800x300', color: 'indigo' },
         { src: 'https://via.placeholder.com/800x300', color: 'teal' },
@@ -54,20 +55,33 @@ export default {
       ]
     }
   },
-  mounted() {
+  computed: {
+    currentImage() {
+      console.log()
+      return banners[this.currentImageIndex].uri;
+    },
+  },
+  mounted(){
+    setInterval(this.changeImage, 1500);
+
   },
   methods: {
-    fetchData() {
-      console.log()
+    changeImage() {
+      this.currentImageIndex++;
+
+      if (this.currentImageIndex >= 9) {
+        this.currentImageIndex = 0;
+      }
     }
   }
-
 };
 </script>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
-
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Single+Day&display=swap');
+#holder{
+  height: 100px;
+}
 .main-page {
   display: flex;
   flex-direction: column;
@@ -77,8 +91,22 @@ export default {
 
 #main-card-overlay {
   position: absolute;
-  display: flex;
+  /* display: flex; */
 }
+
+.main-card-text {
+  font-family: "Single Day", cursive;
+  font-size: 10vw;
+  font-style: normal;
+}
+
+.main-card-carroussel-text {
+  transition: transform 1s ease-out;
+  font-family: "Single Day", cursive;
+  font-size: 10vw;
+  font-style: normal;
+}
+
 .overlay {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.493);
@@ -92,6 +120,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 .overlay:hover {
   opacity: 1;
 }
@@ -129,7 +158,7 @@ export default {
   justify-content: center;
   align-items: center;
   object-fit: cover;
-  object-position: center; 
+  object-position: center;
   display: block;
 }
 
