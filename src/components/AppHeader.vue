@@ -8,7 +8,7 @@
         <span v-if="!mobile">
           Entre em contato
         </span>
-        <a href="wa.link/a69w2y">
+        <a href="https://wa.link/a69w2y">
           <img height="60px" class="icon" src="assets/logos/whatsapp.png" alt="whatsapp">
         </a>
         <a href="https://www.instagram.com/cibele.mara.9/">

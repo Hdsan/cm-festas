@@ -1,6 +1,11 @@
 <template>
     <div class="footer">
-     Header
+      <p>
+        © 2024 BombCore. Todos os direitos reservados. 
+      </p>
+      <p>  
+        Desenvolvido por BombCore.
+      </p>
    </div>
 </template>
 <script>
@@ -9,10 +14,13 @@ export default {
 }
 </script>
 <style>
+p{
+  color:white;
+}
 .footer {
- margin-top: 20vh;
+ margin-top: 50px;
  width: 100%;
- height: 40vh;
- background-color: rgb(255, 87, 87);
+ height: 200px;
+ background-color: rgb(46, 46, 46);
 }
 </style>

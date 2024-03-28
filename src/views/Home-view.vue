@@ -105,6 +105,7 @@ export default {
   font-family: "Single Day", cursive;
   font-size: 10vw;
   font-style: normal;
+  max-width: 90%;
 }
 
 .overlay {
@@ -144,8 +145,7 @@ export default {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(2, 2fr);
   margin-top: 100px;
 }
 
